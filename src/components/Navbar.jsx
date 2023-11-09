@@ -1,8 +1,11 @@
+import Link from "next/link";
+
 const Header = () => {
   return (
     <header className="w-full  text-gray-700 dark:bg-gray-900 shadow-sm body-font fixed z-10">
       <div className="container flex flex-col items-start p-6 mx-auto md:flex-row">
-        <a className="flex items-center mb-4 font-medium text-gray-900 title-font md:mb-0">
+       
+        <Link href={'/'} className="flex items-center mb-4 font-medium text-gray-900 title-font md:mb-0">
           <svg
             className="w-auto h-5 text-white fill-current"
             viewBox="0 0 202 69"
@@ -13,26 +16,28 @@ const Header = () => {
               fillRule="nonzero"
             />
           </svg>
-        </a>
+        </Link>
         <nav className="flex items-center justify-center text-base md:ml-auto text-white">
-          <a href="/" className="mr-5 font-medium hover:text-gray-400">
-            Home
-          </a>
-          <a href="about" className="mr-5 font-medium hover:text-gray-400">
-            About
-          </a>
-          <a href="contact" className="font-medium hover:text-gray-400">Contact</a>
+          <Link href={"/"} className={`mr-5 font-medium hover:text-gray-400`} >Home</Link>
+          <Link href={"/about"} className={`mr-5 font-medium hover:text-gray-400`} >About</Link>
+          <Link href={"/contact"} className={`mr-5 font-medium hover:text-gray-400`} >Contact</Link>
+          
         </nav>
         <div className="items-center h-full pl-6 ml-6 border-l border-gray-200">
-          <a href="login" className="mr-5 font-medium text-white hover:text-gray-400">
+         
+          {/* <Link href={"/login"} className={`mr-5 font-medium text-white hover:text-gray-400`}>Login</Link> */}
+          <Link href="/login" className="mr-5 font-medium text-white hover:text-gray-400">
             Login
-          </a>
-          <a
-            href="signup"
+          </Link>
+
+
+          <Link
+            href="/signup"
             className="px-4 py-2 text-xs font-bold text-white uppercase transition-all duration-150 bg-teal-500 rounded shadow outline-none active:bg-teal-600 hover-shadow-md focus-outline-none ease"
           >
             Sign Up
-          </a>
+          </Link>
+
         </div>
       </div>
     </header>

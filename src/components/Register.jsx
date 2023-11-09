@@ -1,115 +1,76 @@
+import Registration from '@/app/signup/page';
+import React from 'react';
 
 const RegistrationForm = () => {
   return (
-    <div className="bg-gradient-to-r from-blue-500 to-purple-500 min-h-screen p-5 bg-gray-100 flex items-center justify-center ">
-      <div className="container  text-black">
-      
-          <div className="bg-white rounded shadow-lg p-4 px-4 md:p-5 mb-4">
-            <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
-              <div className="text-gray-600">
-                <p className="font-medium text-lg ">Order a Request for Pick Up Extra Food</p>
-                <p>Please fill out all the fields.</p>
-              </div>
+    <section id='register' className="min-h-screen bg-blue-700 from-blue-600 via-blue-800 to-blue-900 dark:from-gray-700 dark:via-gray-800 dark:to-gray-900">
+      <div className="container mx-auto flex min-h-screen flex-col px-6 py-12">
+        <div className="flex-1 lg:-mx-6 lg:flex lg:items-center">
+          <div className="text-white lg:mx-6 lg:w-1/2">
+            <h1 className="text-3xl font-semibold capitalize lg:text-5xl">Get a quote</h1>
 
-              <div className="lg:col-span-2">
-                <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
-                  <div className="md:col-span-5">
-                    <label htmlFor="full_name">Full Name</label>
-                    <input type="text" name="full_name" id="full_name" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
-                  </div>
+            <p className="mt-6 max-w-xl">Ask us everything and we would love to hear from you</p>
 
-                  <div className="md:col-span-5">
-                    <label htmlFor="email">Email Address</label>
-                    <input type="text" name="email" id="email" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="email@domain.com" />
-                  </div>
+            <div className="mt-6 space-y-8 md:mt-8">
+              <p className="-mx-2 flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" className="mx-2 h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
 
-                  <div className="md:col-span-3">
-                    <label htmlFor="address">Address / Street</label>
-                    <input type="text" name="address" id="address" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
-                  </div>
+                <span className="mx-2 w-85 truncate text-white">14, Mango, Jamshedpur, Jharkhand 832304 </span>
+              </p>
 
-                  <div className="md:col-span-2">
-                    <label htmlFor="city">City</label>
-                    <input type="text" name="city" id="city" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
-                  </div>
+              <p className="-mx-2 flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" className="mx-2 h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l-1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
 
-                  <div className="md:col-span-2">
-                    <label htmlFor="country">Country / region</label>
-                    <div className="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
-                      <input name="country" id="country" placeholder="Country" className="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" value="" />
-                      <button tabIndex="-1" className="cursor-pointer outline-none focus:outline-none transition-all text-gray-300 hover:text-red-600">
-                        <svg className="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                          <line x1="18" y1="6" x2="6" y2="18" />
-                          <line x1="6" y1="6" x2="18" y2="18" />
-                        </svg>
-                      </button>
-                      <button tabIndex="-1" htmlFor="show_more" className="cursor-pointer outline-none focus:outline-none border-l border-gray-200 transition-all text-gray-300 hover:text-blue-600">
-                        <svg className="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                          <polyline points="18 15 12 9 6 15" />
-                        </svg>
-                      </button>
-                    </div>
-                  </div>
+                <span className="mx-2 w-72 truncate text-white">+91-7892202101</span>
+              </p>
 
-                  <div className="md:col-span-2">
-                    <label htmlFor="state">State / province</label>
-                    <div className="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
-                      <input name="state" id="state" placeholder="State" className="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" value="" />
-                      <button tabIndex="-1" className="cursor-pointer outline-none focus:outline-none transition-all text-gray-300 hover:text-red-600">
-                        <svg className="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                          <line x1="18" y1="6" x2="6" y2="18" />
-                          <line x1="6" y1="6" x2="18" y2="18" />
-                        </svg>
-                      </button>
-                      <button tabIndex="-1" htmlFor="show_more" className="cursor-pointer outline-none focus:outline-none border-l border-gray-200 transition-all text-gray-300 hover:text-blue-600">
-                        <svg className="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                          <polyline points="18 15 12 9 6 15" />
-                        </svg>
-                      </button>
-                    </div>
-                  </div>
+              <p className="-mx-2 flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" className="mx-2 h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
 
-                  <div className="md:col-span-1">
-                    <label htmlFor="zipcode">Zipcode</label>
-                    <input type="text" name="zipcode" id="zipcode" className="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder="" value="" />
-                  </div>
-
-                  <div className="md:col-span-5">
-                    <div className="inline-flex items-center">
-                      <input type="checkbox" name="billing_same" id="billing_same" className="form-checkbox" />
-                      <label htmlFor="billing_same" className="ml-2">My billing address is different than above.</label>
-                    </div>
-                  </div>
-
-                  <div className="md:col-span-2">
-                    <label htmlFor="soda">How many soda pops?</label>
-                    <div className="h-10 w-28 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
-                      <button tabIndex="-1" htmlFor="show_more" className="cursor-pointer outline-none focus:outline-none border-r border-gray-200 transition-all text-gray-500 hover:text-blue-600">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mx-2" viewBox="0 0 20 20" fill="currentColor">
-                          <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                        </svg>
-                      </button>
-                      <input name="soda" id="soda" placeholder="0" className="px-2 text-center appearance-none outline-none text-gray-800 w-full bg-transparent" value="0" />
-                      <button tabIndex="-1" htmlFor="show_more" className="cursor-pointer outline-none focus:outline-none border-l border-gray-200 transition-all text-gray-500 hover:text-blue-600">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mx-2 fill-current" viewBox="0 0 20 20" fill="currentColor">
-                          <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd" />
-                        </svg>
-                      </button>
-                    </div>
-                  </div>
-
-                  <div className="md:col-span-5 text-right">
-                    <div className="inline-flex items-end">
-                      <button className="bg-blue-500 hover.bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                <span className="mx-2 w-72 truncate text-white">contact@annadata.com</span>
+              </p>
             </div>
           </div>
-        
+
+          <div className="mt-8 lg:mx-6 lg:w-1/2">
+            <div className="mx-auto w-full overflow-hidden rounded-xl bg-white px-8 py-10 shadow-2xl dark:bg-white lg:max-w-xl">
+              <h1 className="text-2xl font-medium text-black">Extra Food Pick Up Request</h1>
+
+              <form className="mt-6">
+                <div className="flex-1">
+                  <label className="mb-2 block text-sm text-black">Full Name</label>
+                  <input type="text" placeholder="John Doe" className="mt-2 block w-full rounded-md border border-gray-400  bg-white px-5 py-3 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 " />
+                </div>
+
+                <div className="mt-6 flex-1">
+                  <label className="mb-2 block text-sm text-black">Mobile Number</label>
+                  <input type="text" placeholder="Mobile" className="mt-2 block w-full rounded-md border border-gray-400  bg-white px-5 py-3 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40" />
+                </div>
+
+                <div className="mt-6 flex-1">
+                  <label className="mb-2 block text-sm text-black">Address</label>
+                  <input type="text" placeholder="Full Address" className="mt-2 block w-full rounded-md border border-gray-400  bg-white px-5 py-3 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40" />
+                </div>
+
+                <div className="mt-6 w-full">
+                  <label className="mb-2 block text-sm text">Explain Quantity</label>
+                  <textarea className="mt-2 block w-full rounded-md border border-gray-400  bg-white px-5 py-3 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 md:h-48" placeholder="Message"></textarea>
+                </div>
+
+                <button className="mt-6 w-full transform rounded-md bg-blue-600 px-6 py-3 text-sm font-medium capitalize tracking-wide text-white transition-colors duration-300 hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-400 focus:ring-opacity-50">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

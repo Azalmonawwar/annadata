@@ -1,46 +1,52 @@
 const About = () => {
     return (
-      <div className="min-h-screen bg-white pt-28">
-        <div >
+      <div className="min-h-screen bg-white pt-28 ">
+        <div className="lg:pt-30" >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className=" overflow-hidden  ">
               <div className="px-4 py-5 sm:p-6">
-                <h2 className="text-2xl font-semibold text-gray-900">About Us</h2>
+              <h1 className=" text-center text-black text-3xl md:text-5xl font-extrabold">About Annadata</h1>
                 <div className="mt-4 text-gray-600">
-                  <h3 className="text-lg font-semibold">Our Founding Belief</h3>
+                  <h3 className="text-lg font-semibold">Our Story</h3>
                   <p>
-                    At EduFocus, we are driven by a singular mission: to transform education through data-driven insights. Our journey began with a simple yet profound realization – that every child has the right to quality education. However, this right is often hindered by the persistent issue of school dropout rates, primarily driven by factors like poverty and social-economic disparities.
+                  Annadata, which means "Provider of Food" in Sanskrit, embodies our commitment to ensuring that no one goes to bed hungry. Our journey began with a simple yet powerful idea - to bridge the gap between the excess food from events and the pressing needs of those who lack a meal.
                   </p>
-                  <p>
-                    We firmly believe that to address this complex problem, we must first understand it at its core. This belief led to the inception of EduFocus, where we harness the power of data to drive meaningful change in the education sector.
-                  </p>
+                  
                 </div>
                 <div className="mt-6 text-gray-600">
-                  <h3 className="text-lg font-semibold">Our Dedicated Team</h3>
+                  <h3 className="text-lg font-semibold">Our Mission</h3>
                   <p>
-                    EduFocus is more than just a name; it&rsquo;s a dedicated team of educators, data scientists, policy experts, and passionate individuals united by a common purpose - to make education accessible to all. Our diverse backgrounds and expertise converge to create a unique synergy that fuels our mission.
+                  At Annadata, our mission is to collect surplus food from weddings, parties, and gatherings, and transform it into a source of hope and nourishment for the less fortunate. We believe in the transformative power of food, not only as sustenance but also as a symbol of care, love, and shared humanity.
                   </p>
-                  <p>
-                    Our educators understand the challenges faced in the classroom, while our data scientists possess the analytical prowess to extract insights from raw data. Our policy experts bridge the gap between data and action, ensuring that our insights translate into effective policies.
-                  </p>
+                  
                 </div>
                 <div className="mt-6 text-gray-600">
-                  <h3 className="text-lg font-semibold">Our Approach</h3>
+                  <h3 className="text-lg font-semibold">Our Impact</h3>
                   <p>
-                    Our approach to transforming education is built on three fundamental pillars:
+                  Since our inception, Annadata has made significant strides in reducing food wastage and alleviating hunger. We have partnered with countless events and individuals, redirecting thousands of meals to those who need it the most. Our work goes beyond saving food; it's about saving lives and fostering a sense of community.
                   </p>
-                  <ul className="list-disc pl-6">
-                    <li>
-                      <strong>Data Collection and Analysis:</strong> We believe that data is the key to unlocking change. We work tirelessly to collect comprehensive data on dropout rates from schools across diverse communities. But we don&rsquo;t stop at data collection; our team of data scientists conducts rigorous analysis, delving deep into the data to uncover trends, patterns, and disparities.
-                    </li>
-                    <li>
-                      <strong>Policy Recommendations:</strong> Data alone is not enough. It must inform action. That&rsquo;s where our policy experts come in. We collaborate closely with government authorities and educational institutions to translate data-driven insights into impactful policies. These policies are designed to target the root causes of dropout rates, ensuring that interventions are efficient and effective.
-                    </li>
-                    <li>
-                      <strong>Support and Training:</strong> But transformation doesn&rsquo;t happen in isolation; it happens within schools and communities. That&rsquo;s why we are committed to providing support and training to schools and local stakeholders. We believe in empowering communities with the knowledge and tools needed to drive change from within.
-                    </li>
-                  </ul>
+                  </div>
+                  <div className="mt-6 text-gray-600">
+                  <h3 className="text-lg font-semibold">How We Operate</h3>
+                  <p>
+                  Annadata operates through a network of dedicated volunteers and like-minded partners. We work closely with event organizers, caterers, and individuals to rescue excess food, ensuring it reaches local shelters, orphanages, and community centers. Our rigorous food safety standards guarantee that every meal we deliver is not only nutritious but also safe to consume.
+                  </p>
+                  </div>
+                  <div className="mt-6 text-gray-600">
+                  <h3 className="text-lg font-semibold">Get Involved</h3>
+                  <p>
+                  You can be a part of this noble cause. Whether you want to donate food, volunteer your time, or support us in any other way, your contribution can make a real difference in the lives of those less fortunate.
+                  </p><br/>
+                  <p>oin us in our mission to eliminate food waste and hunger, one plate at a time.</p>
                 </div>
+                <div className="mt-6 text-gray-600">
+                  <h3 className="text-lg font-semibold">Contact Us</h3>
+                  <p>
+                  If you have any questions or would like to get involved, please don't hesitate to reach out. You can find our contact information <a className="text-blue-400" href="contact">here</a>.<br/><br/>
+                  </p>
+                 
+                </div>
+
               </div>
             </div>
           </div>

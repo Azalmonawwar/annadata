@@ -84,8 +84,8 @@ function Registration() {
 
 
     return (
-        <div className="bg-gradient-to-r from-blue-500 to-purple-500 min-h-screen flex items-center justify-center py-40 pb-10 ">
-            <div className="bg-white p-8 rounded shadow-lg w-[90%] ">
+        <div className=" min-h-screen flex items-center justify-center py-40 pb-10 ">
+            <div className="bg-white p-8 rounded  w-[90%] shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]">
                 <h2 className="text-3xl font-semibold text-center mb-6">Registration</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="grid md:grid-cols-2 grid-cols-1 gap-4">
