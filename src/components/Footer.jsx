@@ -1,17 +1,17 @@
 
 const Footer = () => {
   return (
-    <footer className="bg-white dark:bg-gray-900">
+    <footer className="bg-gray-900">
       <div className="container mx-auto px-6 py-12">
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-y-10 lg:grid-cols-4">
           <div className="sm:col-span-2">
-            <h1 className="max-w-lg text-xl font-semibold tracking-tight text-gray-800 dark:text-white xl:text-2xl">Subscribe our newsletter to get updates.</h1>
+            <h1 className="max-w-lg text-xl font-semibold tracking-tight text-white xl:text-2xl">Subscribe our newsletter to get updates.</h1>
 
             <div className="mx-auto mt-6 flex flex-col space-y-3 md:flex-row md:space-y-0">
               <input
                 id="email"
                 type="text"
-                className="rounded-md border bg-white px-4 py-2 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300"
+                className="rounded-md border px-4 py-2 focus:border-blue-400 focus:outline-none focus:ring-blue-300 focus:ring-opacity-40 border-gray-600 bg-gray-900 text-gray-300 "
                 placeholder="Email Address"
               />
 
@@ -24,32 +24,32 @@ const Footer = () => {
           </div>
 
           <div>
-            <p className="font-semibold text-gray-800 dark:text-white">Quick Links</p>
+            <p className="font-semibold text-white">Quick Links</p>
 
             <div className="mt-5 flex flex-col items-start space-y-2">
-              <a href="#" className="text-gray-600 transition-colors duration-300 hover:text-blue-500 hover:underline dark:text-gray-300 dark:hover:text-blue-400">
+              <a href="/" className="transition-colors duration-300 text-gray-300 hover:underline hover:text-gray-400">
                 Home
               </a>
-              <a href="#" className="text-gray-600 transition-colors duration-300 hover:text-blue-500 hover:underline dark:text-gray-300 dark:hover:text-blue-400">
+              <a href="/" className="transition-colors duration-300 text-gray-300 hover:underline hover:text-gray-400">
                 Who We Are
               </a>
-              <a href="#" className="text-gray-600 transition-colors duration-300 hover:text-blue-500 hover:underline dark:text-gray-300 dark:hover:text-blue-400">
+              <a href="/" className="transition-colors duration-300 text-gray-300 hover:underline hover:text-gray-400">
                 Our Philosophy
               </a>
             </div>
           </div>
 
           <div>
-            <p className="font-semibold text-gray-800 dark:text-white">Industries</p>
+            <p className="font-semibold text-white">Industries</p>
 
             <div className="mt-5 flex flex-col items-start space-y-2">
-              <a href="#" className="text-gray-600 transition-colors duration-300 hover:text-blue-500 hover:underline dark:text-gray-300 dark:hover:text-blue-400">
+            <a href="/" className="transition-colors duration-300 text-gray-300 hover:underline hover:text-gray-400">
                 Retail & E-Commerce
               </a>
-              <a href="#" className="text-gray-600 transition-colors duration-300 hover:text-blue-500 hover:underline dark:text-gray-300 dark:hover:text-blue-400">
+              <a href="/" className="transition-colors duration-300 text-gray-300 hover:underline hover:text-gray-400">
                 Information Technology
               </a>
-              <a href="#" className="text-gray-600 transition-colors duration-300 hover:text-blue-500 hover:underline dark:text-gray-300 dark:hover:text-blue-400">
+              <a href="/" className="transition-colors duration-300 text-gray-300 hover:underline hover:text-gray-400">
                 Finance & Insurance
               </a>
             </div>
