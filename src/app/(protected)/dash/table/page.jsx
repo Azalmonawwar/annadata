@@ -1,9 +1,10 @@
 import ListRequest from '@/components/ListRequest'
 import NavDash from '@/components/NavDash'
+import Sidebar from '@/components/Sidebar'
 const Table = () => {
   return (
     <div className="min-h-screen bg-gray-50/50">
-    {/* <Sidebar/> */}
+    <Sidebar/>
   <div className="p-4 xl:ml-80">
     <NavDash/>
     <div className="">
