@@ -4,23 +4,29 @@ import User from '@/models/users';
 connect();
 export async function POST(req) {
     try {
+        
         const body = await req.json();
+        console.log(body.name);
         const user = await User.create(body);
         return NextResponse.json( {
-            message:"user addes sucessfully"
+            message:"User addes sucessfully",
+            // user:user
+
         });
     } catch (error) {
         return NextResponse.json( {
-            message:"Data not loaded! "
+            message:"Data not loaded! ",
+            massage:error
         });
     }
 }
 export async function GET(req) {
     try {
-        //  body = await req.json();
+         body = await req.json();
         const user = await User.find();
         return NextResponse.json( {
-            user
+            user,
+            massage:"Sucessfull"
         });
     } catch (error) {
         return NextResponse.json( {

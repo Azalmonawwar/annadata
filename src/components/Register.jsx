@@ -1,13 +1,11 @@
-import Registration from '@/app/signup/page';
-import React from 'react';
 
 const RegistrationForm = () => {
   return (
     <section id='register' className="min-h-screen bg-blue-700 from-blue-600 via-blue-800 to-blue-900 dark:from-gray-700 dark:via-gray-800 dark:to-gray-900">
       <div className="container mx-auto flex min-h-screen flex-col px-6 py-12">
-        <div className="flex-1 lg:-mx-6 lg:flex lg:items-center">
-          <div className="text-white lg:mx-6 lg:w-1/2">
-            <h1 className="text-3xl font-semibold capitalize lg:text-5xl">Get a quote</h1>
+        <div className="flex-1 lg:-mx-6 lg:flex lg:items-start md:items-center">
+          <div className="text-white lg:ml-[120px] lg:mt-[100px]  lg:w-1/2">
+            <h1 className="text-3xl font-semibold lg:text-5xl">Get a Request for Donate</h1>
 
             <p className="mt-6 max-w-xl">Ask us everything and we would love to hear from you</p>
 
@@ -59,9 +57,14 @@ const RegistrationForm = () => {
                   <input type="text" placeholder="Full Address" className="mt-2 block w-full rounded-md border border-gray-400  bg-white px-5 py-3 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40" />
                 </div>
 
+                <div className="mt-6 flex-1">
+                  <label className="mb-2 block text-sm text-black">Pin Code</label>
+                  <input type="number" placeholder="Pin Code"className="mt-2 block w-full rounded-md border border-gray-400  bg-white px-5 py-3 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40" />
+                </div>
+
                 <div className="mt-6 w-full">
                   <label className="mb-2 block text-sm text">Explain Quantity</label>
-                  <textarea className="mt-2 block w-full rounded-md border border-gray-400  bg-white px-5 py-3 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 md:h-48" placeholder="Message"></textarea>
+                  <textarea className="mt-2 block w-full rounded-md border border-gray-400  bg-white px-5 py-3 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 md:h-25" placeholder="Food Name and Quantity"></textarea>
                 </div>
 
                 <button className="mt-6 w-full transform rounded-md bg-blue-600 px-6 py-3 text-sm font-medium capitalize tracking-wide text-white transition-colors duration-300 hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-400 focus:ring-opacity-50">Submit</button>

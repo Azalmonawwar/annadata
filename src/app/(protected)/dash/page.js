@@ -12,8 +12,6 @@ const Dashboard = () => {
   <div className="p-4 xl:ml-80">
     <NavDash/>
     <div className="mt-12">
-    
-    
     <CardDash/>
       <div className="mb-4 grid grid-cols-1 gap-6 xl:grid-cols-2">
         <div className="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-md overflow-hidden xl:col-span-2">

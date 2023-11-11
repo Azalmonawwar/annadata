@@ -79,7 +79,9 @@ const FeedbackSection = () => {
           <p className="leading-relaxed mb-5 text-gray-600">
             Post your Feedback to us so We will Encourage and Improve us.
           </p>
+          <form onSubmit={handleSubmit}>
           <div className="relative mb-4">
+          
             <label for="email" className="leading-7 text-sm text-gray-600">
               Email
             </label>
@@ -106,10 +108,10 @@ const FeedbackSection = () => {
               className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
             ></textarea>
           </div>
-          <button type="submit" onClick={handleSubmit} className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+          <button type="submit" className="mt-6 w-full transform rounded-md bg-blue-600 px-6 py-3 text-sm font-medium capitalize tracking-wide text-white transition-colors duration-300 hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-400 focus:ring-opacity-50">
             Submit
           </button>
-          
+          </form>
         </div>
       </div>
     </section>

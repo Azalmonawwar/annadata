@@ -8,9 +8,13 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  dob: {
-    type: String,
-    required: true
+  address:{
+    type:String,
+    required:true
+  },
+  pincode:{
+    type:String,
+    required:true
   },
   contact: {
     type: Number,
@@ -21,22 +25,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  district: {
-    type: String,
-    required: true
-  },
-  block: {
-    type: String,
-    required: true
-  },
-  school: {
-    type: String,
-    required: true
-  },
-  schoolCode: {
-    type: String,
-    required: true
-  },
+  
   password: {
     type: String,
     required: true
