@@ -1,6 +1,63 @@
-
+'use client'
+import { useState } from 'react';
+import toast from 'react-hot-toast';
 
 const FeedbackSection = () => {
+    const [formData, setFormData] = useState({
+      email: '',
+      message: '',
+    });
+  
+    const handleChange = (e) => {
+      const { name, value } = e.target;
+      setFormData({
+        ...formData,
+        [name]: value,
+      });
+    };
+  
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+  
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            email: formData.email,
+            message: formData.message
+          })
+        })
+  
+        // Set the status based on the response from the API route
+        if (response.status === 200) {
+          setFormData({
+            email: "",
+            message: ""
+          })
+          toast.success(` Your message was sucessfully sent Thank you`)
+          console.log("Massage sent.")
+        } else {
+          toast.error("Something went Wrong")
+        }
+  
+      } catch (e) {
+        console.log(e)
+      }
+  
+  
+      const response = await fetch('/api/sendemail', {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json'
+        },
+        body: JSON.stringify({
+          email: formData.email
+        })
+      })
+      console.log(await response.json())
+  
+    }
   return (
     <section className="text-gray-600 body-font relative mx-[2.5%] mb-10 rounded-lg shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]">
       <div className="absolute inset-0 bg-gray-300">
@@ -30,6 +87,9 @@ const FeedbackSection = () => {
               type="email"
               id="email"
               name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
               className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
             />
           </div>
@@ -40,10 +100,13 @@ const FeedbackSection = () => {
             <textarea
               id="message"
               name="message"
+              value={formData.message}
+              onChange={handleChange}
+              required
               className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
             ></textarea>
           </div>
-          <button className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+          <button type="submit" onClick={handleSubmit} className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
             Submit
           </button>
           

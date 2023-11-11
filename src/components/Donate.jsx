@@ -77,7 +77,7 @@ const Donate = () => {
             <span className="font-semibold">Jedi Knight</span>
             <div className="flex items-center">
               <span className="text-3xl">&#8377;</span>
-              <span className="text-6xl font-bold">1-&infin;</span>
+              <span className="text-5xl font-bold">1-2000</span>
             </div>
           </div>
           <div className="p-10">

@@ -6,7 +6,7 @@ const Contact = () => {
   return (
     <>
     <ContactCard/>
-    <div className="min-h-screen bg-white ">
+    <div className=" bg-white ">
       <div >
         <div className="max-w-7xl mx-auto px-3 sm:px-3 lg:px-3">
           <div className=" overflow-hidden ">
