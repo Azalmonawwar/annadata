@@ -74,6 +74,7 @@ function Login() {
                         <Link href="/signup" className="text-blue-500 hover:underline">
                             Register
                         </Link>
+                        
                     </p>
                 </div>
             </div>
