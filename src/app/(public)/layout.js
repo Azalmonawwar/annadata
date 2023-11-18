@@ -4,6 +4,7 @@ import Header from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import { Toaster } from 'react-hot-toast'
 const inter = Inter({ subsets: ['latin'] })
+import Nav from '@/components/Nav'
 
 export const metadata = {
   title: 'Annadata',
@@ -16,6 +17,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
       <Toaster position="bottom-center" toastOptions={{ duration: 4000 }} />
         <Header/>
+        {/* <Nav/> */}
         <main className='w-full flex flex-col'>
           {children}
         </main>

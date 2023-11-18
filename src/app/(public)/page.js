@@ -11,7 +11,6 @@ export default function Home() {
     <>
       <Hero/>
       <RegistrationForm/>
-      
       <Donate/>
       {/* <CarouselComponent/> */}
       <Info/>
