@@ -1,4 +1,3 @@
-import React from 'react';
 
 const Donate = () => {
   return (
@@ -9,7 +8,7 @@ const Donate = () => {
       <div className="flex flex-wrap items-center justify-center w-full max-w-4xl mt-8 ">
         <div className="flex flex-col flex-grow mt-8 overflow-hidden bg-white rounded-lg shadow-[0_10px_20px_rgba(240,_46,_170,_0.7)]">
           <div className="flex flex-col items-center p-10 bg-pink-200">
-            <span className="font-semibold">Padawan</span>
+            <span className="font-semibold">Annamitra</span>
             <div className="flex items-center">
               <span className="text-3xl">&#8377;</span>
               <span className="text-5xl font-bold">100</span>
@@ -65,16 +64,18 @@ const Donate = () => {
             </ul>
           </div>
           <div className="flex px-10 pb-10 justfy-center">
+          
             <button className="flex items-center justify-center w-full h-12 px-6 text-sm uppercase bg-gray-200 hover:bg-blue-800 hover:text-white rounded-lg">
               Donate now
             </button>
+            
           </div>
         </div>
 
         {/* Tile 2 */}
         <div className="flex flex-col flex-grow mt-8 overflow-hidden transform bg-white rounded-lg md:scale-110 shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] mb-10">
           <div className="flex flex-col items-center p-10 bg-green-200 ">
-            <span className="font-semibold">Jedi Knight</span>
+            <span className="font-semibold">Annasevak</span>
             <div className="flex items-center">
               <span className="text-3xl">&#8377;</span>
               <span className="text-5xl font-bold">1-2000</span>
@@ -139,7 +140,7 @@ const Donate = () => {
         {/* Tile 3 */}
         <div className="flex flex-col flex-grow overflow-hidden bg-white rounded-lg mt-19 shadow-[0_10px_20px_rgba(240,_46,_170,_0.7)]">
           <div className="flex flex-col items-center p-10 bg-blue-200 ">
-            <span className="font-semibold">Jedi Master</span>
+            <span className="font-semibold">Annarakhsha</span>
             <div className="flex items-center">
               <span className="text-3xl">&#8377;</span>
               <span className="text-5xl font-bold">2000</span>

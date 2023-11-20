@@ -1,3 +1,4 @@
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -30,27 +31,27 @@ const Footer = () => {
               <a href="/" className="transition-colors duration-300 text-gray-300 hover:underline hover:text-gray-400">
                 Home
               </a>
-              <a href="/" className="transition-colors duration-300 text-gray-300 hover:underline hover:text-gray-400">
+              <a href="/contact" className="transition-colors duration-300 text-gray-300 hover:underline hover:text-gray-400">
                 Who We Are
               </a>
-              <a href="/" className="transition-colors duration-300 text-gray-300 hover:underline hover:text-gray-400">
+              <a href="/about" className="transition-colors duration-300 text-gray-300 hover:underline hover:text-gray-400">
                 Our Philosophy
               </a>
             </div>
           </div>
 
           <div>
-            <p className="font-semibold text-white">Industries</p>
+            <p className="font-semibold text-white">Top Links</p>
 
             <div className="mt-5 flex flex-col items-start space-y-2">
-            <a href="/" className="transition-colors duration-300 text-gray-300 hover:underline hover:text-gray-400">
-                Retail & E-Commerce
+            <a href="/#register" className="transition-colors duration-300 text-gray-300 hover:underline hover:text-gray-400">
+                Donate Food
               </a>
-              <a href="/" className="transition-colors duration-300 text-gray-300 hover:underline hover:text-gray-400">
-                Information Technology
+              <a href="/#Donate" className="transition-colors duration-300 text-gray-300 hover:underline hover:text-gray-400">
+                Donate Fund
               </a>
-              <a href="/" className="transition-colors duration-300 text-gray-300 hover:underline hover:text-gray-400">
-                Finance & Insurance
+              <a href="/#feedback" className="transition-colors duration-300 text-gray-300 hover:underline hover:text-gray-400">
+                Feedback
               </a>
             </div>
           </div>
@@ -60,26 +61,11 @@ const Footer = () => {
 
         <div className="flex items-center justify-between">
           <a href="#">
-            <img className="h-7 w-auto" src="https://merakiui.com/images/full-logo.svg" alt="" />
+            {/* <img className="h-7 w-auto" src="./logo.png" alt="" /> */}
+            <Image className="" src="/logo.png" alt="logo" width="100" height="100"/>
           </a>
 
-          <div className="-mx-2 flex">
-            <a
-              href="#"
-              className="mx-2 text-gray-600 transition-colors duration-300 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-400"
-              aria-label="Reddit"
-            >
-              <svg className="h-5 w-5 fill-current" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"></svg>
-            </a>
 
-            <a
-              href="#"
-              className="mx-2 text-gray-600 transition-colors duration-300 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-400"
-              aria-label="Facebook"
-            >
-              <svg className="h-5 w-5 fill-current" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"></svg>
-            </a>
-          </div>
         </div>
       </div>
     </footer>

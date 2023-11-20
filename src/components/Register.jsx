@@ -1,5 +1,56 @@
+'use client'
+import { saveOrderToDB } from '@/lib/appwrite';
+import { useState } from 'react';
+import toast from 'react-hot-toast';
 
 const RegistrationForm = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    mobile: '',
+    address: "",
+    pin_code: "",
+    quantity: ""
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const res= await saveOrderToDB(formData);
+      toast.success("Successfully sent your Request.");
+        setFormData({ 
+        name: "",
+        mobile: "",
+        address: "",
+        pin_code: "",
+        quantity: ""
+      })
+      
+    } catch (error) {
+      console.log(error);
+      toast.error("Faild to send your request please verify details.");
+    }
+
+    // const response = await fetch('/api/sendemail', {
+    //   method: 'POST',
+    //   headers: {
+    //     'content-type': 'application/json'
+    //   },
+    //   body: JSON.stringify({
+    //     email: formData.email
+    //   })
+    // })
+    // console.log(await response.json())
+
+  }
   return (
     <section id='register' className="min-h-screen bg-blue-700 from-blue-600 via-blue-800 to-blue-900 dark:from-gray-700 dark:via-gray-800 dark:to-gray-900">
       <div className="container mx-auto flex min-h-screen flex-col px-6 py-12">
@@ -41,33 +92,61 @@ const RegistrationForm = () => {
             <div className="mx-auto w-full overflow-hidden rounded-xl bg-white px-8 py-10 shadow-2xl dark:bg-white lg:max-w-xl">
               <h1 className="text-2xl font-medium text-black">Extra Food Pick Up Request</h1>
 
-              <form className="mt-6">
+              <form className="mt-6" onSubmit={handleSubmit}>
                 <div className="flex-1">
                   <label className="mb-2 block text-sm text-black">Full Name</label>
-                  <input type="text" placeholder="John Doe" className="mt-2 block w-full rounded-md border border-gray-400  bg-white px-5 py-3 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 " />
+                  <input
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required 
+                  type="text" placeholder="John Doe" className="mt-2 block w-full rounded-md border border-gray-400  bg-white px-5 py-3 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 " />
                 </div>
 
                 <div className="mt-6 flex-1">
                   <label className="mb-2 block text-sm text-black">Mobile Number</label>
-                  <input type="text" placeholder="Mobile" className="mt-2 block w-full rounded-md border border-gray-400  bg-white px-5 py-3 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40" />
+                  <input 
+                  id='mobile'
+                  name='mobile'
+                  value={formData.mobile}
+                  onChange={handleChange}
+                  required
+                  type="text" placeholder="Mobile" className="mt-2 block w-full rounded-md border border-gray-400  bg-white px-5 py-3 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40" />
                 </div>
 
                 <div className="mt-6 flex-1">
                   <label className="mb-2 block text-sm text-black">Address</label>
-                  <input type="text" placeholder="Full Address" className="mt-2 block w-full rounded-md border border-gray-400  bg-white px-5 py-3 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40" />
+                  <input
+                  id='address'
+                  name='address'
+                  value={formData.address}
+                  onChange={handleChange}
+                  required 
+                  type="text" placeholder="Full Address" className="mt-2 block w-full rounded-md border border-gray-400  bg-white px-5 py-3 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40" />
                 </div>
 
                 <div className="mt-6 flex-1">
                   <label className="mb-2 block text-sm text-black">Pin Code</label>
-                  <input type="number" placeholder="Pin Code"className="mt-2 block w-full rounded-md border border-gray-400  bg-white px-5 py-3 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40" />
+                  <input 
+                  id='pin_code'
+                  name='pin_code'
+                  value={formData.pin_code}
+                  onChange={handleChange}
+                  required type="number" placeholder="Pin Code"className="mt-2 block w-full rounded-md border border-gray-400  bg-white px-5 py-3 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40" />
                 </div>
 
                 <div className="mt-6 w-full">
                   <label className="mb-2 block text-sm text">Explain Quantity</label>
-                  <textarea className="mt-2 block w-full rounded-md border border-gray-400  bg-white px-5 py-3 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 md:h-25" placeholder="Food Name and Quantity"></textarea>
+                  <textarea 
+                  id='quantity'
+                  name='quantity'
+                  value={formData.quantity}
+                  onChange={handleChange}
+                  required className="mt-2 block w-full rounded-md border border-gray-400  bg-white px-5 py-3 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 md:h-25" placeholder="Food Name and Quantity"></textarea>
                 </div>
 
-                <button className="mt-6 w-full transform rounded-md bg-blue-600 px-6 py-3 text-sm font-medium capitalize tracking-wide text-white transition-colors duration-300 hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-400 focus:ring-opacity-50">Submit</button>
+                <button type='submit' className="mt-6 w-full transform rounded-md bg-blue-600 px-6 py-3 text-sm font-medium capitalize tracking-wide text-white transition-colors duration-300 hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-400 focus:ring-opacity-50">Submit</button>
               </form>
             </div>
           </div>

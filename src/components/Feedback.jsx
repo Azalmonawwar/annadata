@@ -59,7 +59,7 @@ const FeedbackSection = () => {
   
     }
   return (
-    <section className="text-gray-600 body-font relative mx-[2.5%] mb-10 rounded-lg shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]">
+    <section id='feedback' className="text-gray-600 body-font relative mx-[2.5%] mb-10 rounded-lg shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]">
       <div className="absolute inset-0 bg-gray-300">
         <iframe
           width="100%"

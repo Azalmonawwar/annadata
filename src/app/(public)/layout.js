@@ -3,8 +3,10 @@ import '@/app/globals.css'
 import Header from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import { Toaster } from 'react-hot-toast'
+// import AuthContextProvider from '@/context/AuthContext'
+import AuthContextProvider from '@/context/AuthContext'
 const inter = Inter({ subsets: ['latin'] })
-import Nav from '@/components/Nav'
+// import Nav from '@/components/Nav'
 
 export const metadata = {
   title: 'Annadata',
@@ -24,6 +26,6 @@ export default function RootLayout({ children }) {
         <Footer />
       </body>
     </html>
-  
+
   )
 }

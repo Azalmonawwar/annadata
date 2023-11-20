@@ -1,9 +1,15 @@
 'use client'
+import { useUser } from '@/context/AuthContext';
+import { ID } from 'appwrite';
+import { createUserAccount } from '@/lib/appwrite';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
 
 function Registration() {
+    const { setUser, setIsAuth } = useUser()
+    const router = useRouter()
     const [formData, setFormData] = useState({
         name: '',
         gender: '', // Change to select
@@ -12,7 +18,7 @@ function Registration() {
         contact: '',
         email: '',
         password: '',
-        // password_1:''
+        password_1: ''
     });
 
     const handleChange = (e) => {
@@ -22,43 +28,55 @@ function Registration() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-    
+
         try {
-          const response = await fetch('/api/user/signup', {
-            method: 'POST',
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                name:formData.name,
-                gender:formData.gender,
-                address:formData.address,
-                pincode:formData.pincode,
-                contact:formData.contact,
-                email:formData.email,
-                password:formData.password
+            const response = await fetch('/api/user/signup', {
+                method: 'POST',
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    name: formData.name,
+                    gender: formData.gender,
+                    address: formData.address,
+                    pincode: formData.pincode,
+                    contact: formData.contact,
+                    email: formData.email,
+                    password: formData.password
+                })
             })
-          })
-    
-          // Set the status based on the response from the API route
-          if (response.status === 200) {
-            setFormData({
-                name:'',
-                gender:'',
-                address:'',
-                pincode:'',
-                contact:'',
-                email:'',
-                password:'',
-                password_1:''
-            })
-            toast.success(`${formData.name} You have successfully Registerd please verify your email.`)
-          } else {
-            toast.error("Something went Wrong")
-          }
+
+            // Set the status based on the response from the API route
+            if (response.status === 200) {
+                setFormData({
+                    name: '',
+                    gender: '',
+                    address: '',
+                    pincode: '',
+                    contact: '',
+                    email: '',
+                    password: '',
+                    password_1: ''
+                })
+                // toast.success(`${formData.name} You have successfully Registerd please verify your email.`)
+            } else {
+                toast.error("Something went Wrong")
+            }
         } catch (e) {
-          console.log(e)
+            console.log(e)
         }
-    
-      }
+        try {
+            // const res = await account.create(ID.unique(), formData.email, formData.password, formData.name)
+            const res = await createUserAccount(ID.unique(), formData.email, formData.password, formData.name)
+            if (res) {
+                toast.success(formData.name + "account created successfully")
+                router.push('/login')
+            }
+            console.log(res)
+
+        } catch (error) {
+            console.log("something went wrong in creating error", error)
+            toast.error("something went wrong in creating your account")
+        }
+    }
 
     const genderOptions = ['Male', 'Female', 'Other'];
 
@@ -71,7 +89,7 @@ function Registration() {
                     <div className="grid md:grid-cols-2 grid-cols-1 gap-4">
                         <div className="mb-4">
                             <label htmlFor="name" className="block text-gray-700 font-semibold mb-2">
-                               Full Name 
+                                Full Name
                             </label>
                             <input
                                 type="text"
@@ -156,7 +174,7 @@ function Registration() {
                         </div>
                         <div className="mb-4">
                             <label htmlFor="email" className="block text-gray-700 font-semibold mb-2">
-                             Email
+                                Email
                             </label>
                             <input
                                 type="email"
@@ -202,12 +220,13 @@ function Registration() {
                         </div>
                     </div>
                     <div className="flex items-center justify-center">
-                    <button
-                        type='submit'
-                        className="bg-blue-500 text-white rounded-lg py-2 px-4 hover:bg-blue-600 focus:outline-none focus:bg-blue-600 w-[50%] mt-4 "
-                    >
-                        Register
-                    </button>
+                        <button
+                            type='submit'
+                            disabled={formData.password !== formData.password_1}
+                            className="bg-blue-500 text-white rounded-lg py-2 px-4 hover:bg-blue-600 focus:outline-none focus:bg-blue-600 w-[50%] mt-4 "
+                        >
+                            Register
+                        </button>
                     </div>
                 </form>
                 <div className="mt-4 text-center">

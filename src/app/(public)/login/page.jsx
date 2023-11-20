@@ -2,10 +2,15 @@
 'use client'
 import Link from 'next/link';
 import React, { useState } from 'react';
-
+import { loginUserAccoutn } from '@/lib/appwrite';
+import { useRouter } from 'next/navigation';
+import { useUser } from '@/context/AuthContext';
 function Login() {
+    const router = useRouter();
+    const { setUser, setIsAuth } = useUser();
+
     const [formData, setFormData] = useState({
-        username: '',
+        email: '',
         password: '',
     });
 
@@ -14,10 +19,19 @@ function Login() {
         setFormData({ ...formData, [name]: value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Add your login logic here using formData.username and formData.password
-        console.log('Form data submitted:', formData);
+        try {
+            const res = await loginUserAccoutn(formData.email, formData.password);
+            if (res) {
+                // setUser(formData.name, formData.email)
+                setIsAuth(true);
+                router.push('/dash')
+            }
+        } catch (error) {
+            console.log('somethign went wrong in login', error)
+        }
+        // console.log('Form data submitted:', formData);
     };
 
     return (
@@ -26,16 +40,16 @@ function Login() {
                 <h2 className="text-3xl font-semibold text-center mb-6">Login</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-4">
-                        <label htmlFor="username" className="block text-gray-700 font-semibold mb-2">
-                            Username
+                        <label htmlFor="email" className="block text-gray-700 font-semibold mb-2">
+                            Email
                         </label>
                         <input
                             type="text"
-                            id="username"
-                            name="username"
+                            id="email"
+                            name="email"
                             className="w-full border rounded-lg px-3 py-2 "
-                            placeholder="Enter your username"
-                            value={formData.username}
+                            placeholder="Enter your email"
+                            value={formData.email}
                             onChange={handleChange}
                             required
                         />
@@ -74,7 +88,6 @@ function Login() {
                         <Link href="/signup" className="text-blue-500 hover:underline">
                             Register
                         </Link>
-                        
                     </p>
                 </div>
             </div>
