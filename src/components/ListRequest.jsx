@@ -3,7 +3,7 @@ import { showDB } from "@/lib/appwrite"
 import { useEffect,useState } from "react";
 
 const ListRequest = () => {
-const [data,setData] = useState();
+const [data,setData] = useState([]);
 const getData= async () =>{
   const data1 = await showDB();
   return (data1.documents)
@@ -14,8 +14,8 @@ useEffect(() => {
   demo()
 }, [])
   const demo =async () =>{
-    const res = await getData();
-    console.log(res)    
+    const res = await getData();    
+    setData(res)
   }
 
   return (
@@ -68,33 +68,35 @@ useEffect(() => {
               </thead>
               <tbody className="bg-white divide-y divide-gray-200 divide-gray-700 bg-gray-900">
 
-               
-                <tr>
+               {
+                data.map((elem)=>{
+                  return(
+                    <tr>
                   <td className="px-4 py-4 text-sm font-medium text-gray-700 text-gray-200 whitespace-nowrap">
                     <div className="inline-flex items-center gap-x-3">
                       
-                      <span>Amit</span>
+                      <span>{elem.name}</span>
                     </div>
                   </td>
                   <td className="px-4 py-4 text-sm text-gray-500 text-gray-300 whitespace-nowrap">
-                    8809886409
+                    {elem.mobile}
                   </td>
                   <td className="px-4 py-4 text-sm font-medium text-gray-700 text-gray-200 whitespace-nowrap">
                     <div className="inline-flex items-center gap-x-3">
                       
-                      <span>Jamshedpur</span>
+                      <span>{elem.address}</span>
                     </div>
                   </td>
                   <td className="px-4 py-4 text-sm font-medium text-gray-700 text-gray-200 whitespace-nowrap">
                     <div className="inline-flex items-center gap-x-3">
                       
-                      <span>832304</span>
+                      <span>{elem.pin_code}</span>
                     </div>
                   </td>
                   <td className="px-4 py-4 text-sm font-medium text-gray-700 text-gray-200 whitespace-nowrap">
                     <div className="inline-flex items-center gap-x-3">
                       
-                      <span>Rice </span>
+                      <span>{elem.quantity} </span>
                     </div>
                   </td>
                   <td className="px-4 py-4 text-sm whitespace-nowrap">
@@ -108,6 +110,10 @@ useEffect(() => {
                     </div>
                   </td>
                 </tr>
+                  )
+                })
+               }
+                
                 
               </tbody>
             </table>
