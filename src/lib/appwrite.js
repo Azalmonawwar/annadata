@@ -1,5 +1,3 @@
-
-
 import { ID } from "appwrite";
 import { account, database, url } from "./config";
 export async function createUserAccount(id, email, password, name) {
@@ -60,6 +58,18 @@ export async function saveOrderToDB(formData){
             formData
         )
         console.log(res);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export async function showDB(){
+    try {
+        const res = await database.listDocuments(
+            url.db,url.collection,
+        )
+        return res;
+        // console.log(res);
     } catch (error) {
         console.log(error);
     }
