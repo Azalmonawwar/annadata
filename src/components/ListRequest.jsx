@@ -6,7 +6,7 @@ const ListRequest = () => {
 const [data,setData] = useState([]);
 const getData= async () =>{
   const data1 = await showDB();
-  return (data1.documents)
+  return (data1.documents.reverse())
 
 }
 useEffect(() => {

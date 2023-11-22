@@ -1,6 +1,47 @@
+'use client'
 import Image from "next/image";
+import { useState } from "react";
+import toast from "react-hot-toast";
 
 const Footer = () => {
+  const [formData, setFormData] = useState({
+    email: ''
+});
+
+const handleChange = (e) => {
+  const { name, value } = e.target;
+  setFormData({ ...formData, [name]: value });
+};
+
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+      const response = await fetch('/api/subscribe', {
+          method: 'POST',
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+              email: formData.email
+          })
+      })
+
+      // Set the status based on the response from the API route
+      if (response.status === 200) {
+          setFormData({
+              email: ''
+          })
+          toast.success(`Subscribe Successfull.`)
+          // console.log("Successfull");
+      } else if (response.status===400){
+        toast.error("Already Registor");
+      }
+    } catch (error) {
+      console.log(error)
+      toast.error("Something went Wrong",error)
+  }
+ 
+}
   return (
     <footer className={`bg-gray-900 ` }>
       <div className="container mx-auto px-6 py-12">
@@ -11,12 +52,16 @@ const Footer = () => {
             <div className="mx-auto mt-6 flex flex-col space-y-3 md:flex-row md:space-y-0">
               <input
                 id="email"
-                type="text"
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
                 className="rounded-md border px-4 py-2 focus:border-blue-400 focus:outline-none focus:ring-blue-300 focus:ring-opacity-40 border-gray-600 bg-gray-900 text-gray-300 "
                 placeholder="Email Address"
               />
 
-              <button
+              <button onClick={handleSubmit}
                 className="w-full transform rounded-lg bg-gray-800 px-6 py-2.5 text-sm font-medium tracking-wider text-white transition-colors duration-300 hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-80 md:mx-4 md:w-auto"
               >
                 Subscribe

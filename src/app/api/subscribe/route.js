@@ -1,24 +1,29 @@
 import connect from '@/dbconfig/connect';
 import { NextResponse } from 'next/server';
-import Request from '@/models/request';
+import Subscribe from '@/models/subscribe';
 connect();
 export async function POST(req) {
     try {
         const body = await req.json();
-        const user = await Request.create(body);
+        const user = await Subscribe.create(body);
         return NextResponse.json( {
-            message:"Request sent sucessfully."
+            message:"Subscribe sucessfully."
         });
+        
     } catch (error) {
+        console.log(error);
         return NextResponse.json( {
-            message:"Somthing went wrong. "
+            message:"Somthing went wrong."
+        },
+        {
+            status:400
         });
     }
 }
 export async function GET(req) {
     try {
         //  body = await req.json();
-        const user = await Request.find();
+        const user = await Subscribe.find();
         return NextResponse.json( {
             user
         });

@@ -2,8 +2,8 @@
 const CardDash = () => {
   return (
     <div className="mb-12 grid gap-y-10 gap-x-6 md:grid-cols-2 xl:grid-cols-4">
-    <div className="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-md">
-      <div className="bg-clip-border mx-4 rounded-xl overflow-hidden bg-gradient-to-tr from-blue-600 to-blue-400 text-white shadow-blue-500/40 shadow-lg absolute -mt-4 grid h-16 w-16 place-items-center">
+    <div className="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] hover:bg-blue-200">
+      <div className="bg-clip-border mx-4 rounded-xl overflow-hidden bg-gradient-to-tr from-blue-600 to-blue-400 text-white shadow-blue-500/40 shadow-lg absolute -mt-4 grid h-16 w-16 place-items-center ">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -22,20 +22,19 @@ const CardDash = () => {
       </div>
       <div className="p-4 text-right">
         <p className="block antialiased font-sans text-sm leading-normal font-normal text-blue-gray-600">
-          Today's Money
+          Fund Raised
         </p>
         <h4 className="block antialiased tracking-normal font-sans text-2xl font-semibold leading-snug text-blue-gray-900">
-          $53k
+        &#8377;53k
         </h4>
       </div>
       <div className="border-t border-blue-gray-50 p-4">
         <p className="block antialiased font-sans text-base leading-relaxed font-normal text-blue-gray-600">
-          <strong className="text-green-500">+55%</strong>&nbsp;than last
-          week
+          Total Fund Raised by Donation
         </p>
       </div>
     </div>
-    <div className="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-md">
+    <div className="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] hover:bg-blue-200">
       <div className="bg-clip-border mx-4 rounded-xl overflow-hidden bg-gradient-to-tr from-pink-600 to-pink-400 text-white shadow-pink-500/40 shadow-lg absolute -mt-4 grid h-16 w-16 place-items-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -51,22 +50,21 @@ const CardDash = () => {
           />
         </svg>
       </div>
-      <div className="p-4 text-right">
+      <div className="p-4 text-right ">
         <p className="block antialiased font-sans text-sm leading-normal font-normal text-blue-gray-600">
-          Today's Users
+          Total Request
         </p>
         <h4 className="block antialiased tracking-normal font-sans text-2xl font-semibold leading-snug text-blue-gray-900">
-          2,300
+          230
         </h4>
       </div>
       <div className="border-t border-blue-gray-50 p-4">
         <p className="block antialiased font-sans text-base leading-relaxed font-normal text-blue-gray-600">
-          <strong className="text-green-500">+3%</strong>&nbsp;than last
-          month
+          Total Request for Pick Up
         </p>
       </div>
     </div>
-    <div className="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-md">
+    <div className="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] hover:bg-blue-200">
       <div className="bg-clip-border mx-4 rounded-xl overflow-hidden bg-gradient-to-tr from-green-600 to-green-400 text-white shadow-green-500/40 shadow-lg absolute -mt-4 grid h-16 w-16 place-items-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -78,21 +76,21 @@ const CardDash = () => {
           <path d="M6.25 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM3.25 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM19.75 7.5a.75.75 0 00-1.5 0v2.25H16a.75.75 0 000 1.5h2.25v2.25a.75.75 0 001.5 0v-2.25H22a.75.75 0 000-1.5h-2.25V7.5z" />
         </svg>
       </div>
-      <div className="p-4 text-right">
+      <div className="p-4 text-right ">
         <p className="block antialiased font-sans text-sm leading-normal font-normal text-blue-gray-600">
-          New Clients
+          Completed
         </p>
         <h4 className="block antialiased tracking-normal font-sans text-2xl font-semibold leading-snug text-blue-gray-900">
-          3,462
+          150
         </h4>
       </div>
       <div className="border-t border-blue-gray-50 p-4">
         <p className="block antialiased font-sans text-base leading-relaxed font-normal text-blue-gray-600">
-          <strong className="text-red-500">-2%</strong>&nbsp;than yesterday
+          Pick Up Completed
         </p>
       </div>
     </div>
-    <div className="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-md">
+    <div className="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] hover:bg-blue-200">
       <div className="bg-clip-border mx-4 rounded-xl overflow-hidden bg-gradient-to-tr from-orange-600 to-orange-400 text-white shadow-orange-500/40 shadow-lg absolute -mt-4 grid h-16 w-16 place-items-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -106,16 +104,15 @@ const CardDash = () => {
       </div>
       <div className="p-4 text-right">
         <p className="block antialiased font-sans text-sm leading-normal font-normal text-blue-gray-600">
-          Sales
+        Total Fund Raised
         </p>
         <h4 className="block antialiased tracking-normal font-sans text-2xl font-semibold leading-snug text-blue-gray-900">
-          $103,430
+        &#8377;103,430
         </h4>
       </div>
       <div className="border-t border-blue-gray-50 p-4">
         <p className="block antialiased font-sans text-base leading-relaxed font-normal text-blue-gray-600">
-          <strong className="text-green-500">+5%</strong>&nbsp;than
-          yesterday
+        Total Fund Raised till Now
         </p>
       </div>
     </div>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 
 const Donate = () => {
   return (
@@ -64,11 +65,11 @@ const Donate = () => {
             </ul>
           </div>
           <div className="flex px-10 pb-10 justfy-center">
-          
-            <button className="flex items-center justify-center w-full h-12 px-6 text-sm uppercase bg-gray-200 hover:bg-blue-800 hover:text-white rounded-lg">
-              Donate now
+          <Link href="/payment" className="flex items-center justify-center w-full h-12 px-6 text-sm uppercase bg-gray-200 hover:bg-blue-800 hover:text-white rounded-lg">
+            <button >
+              DONATE NOW
             </button>
-            
+            </Link>
           </div>
         </div>
 
@@ -131,9 +132,11 @@ const Donate = () => {
             </ul>
           </div>
           <div className="flex px-10 pb-10 justfy-center">
-            <button className="flex items-center justify-center w-full h-12 px-6 text-sm uppercase bg-gray-200 rounded-lg hover:bg-blue-800 hover:text-white">
-              Donate now
+          <Link href="/payment" className="flex items-center justify-center w-full h-12 px-6 text-sm uppercase bg-gray-200 hover:bg-blue-800 hover:text-white rounded-lg">
+            <button >
+              DONATE NOW
             </button>
+            </Link>
           </div>
         </div>
 
@@ -196,9 +199,11 @@ const Donate = () => {
             </ul>
           </div>
           <div className="flex px-10 pb-10 justfy-center">
-            <button className="flex items-center justify-center w-full h-12 px-6 text-sm uppercase bg-gray-200 rounded-lg hover:bg-blue-800 hover:text-white">
-              Donate now
+          <Link href="/payment" className="flex items-center justify-center w-full h-12 px-6 text-sm uppercase bg-gray-200 hover:bg-blue-800 hover:text-white rounded-lg">
+            <button >
+              DONATE NOW
             </button>
+            </Link>
           </div>
         </div>
       </div>
