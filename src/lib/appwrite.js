@@ -74,3 +74,16 @@ export async function showDB(){
         console.log(error);
     }
 }
+
+export async function deleteData(id){
+    try {
+        const res = await database.deleteDocument(
+            url.db,url.collection,
+            id  
+        )
+        return res;
+        // console.log(res);
+    } catch (error) {
+        console.log(error);
+    }
+}

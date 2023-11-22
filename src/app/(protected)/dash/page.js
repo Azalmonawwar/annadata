@@ -11,11 +11,11 @@ function Dashboard() {
   const router = useRouter();
   const { isAuth, isLoading } = useUser();
   console.log(isLoading);
-  if(isLoading){
-    router.push('/login')
-    return (<Loader/>)
+  // if(isLoading){
+  //   router.push('/login')
+  //   return (<Loader/>)
    
-  }
+  // }
   // if (!isAuth) {
   //   router.push('/login')
   // }

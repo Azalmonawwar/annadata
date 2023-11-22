@@ -1,8 +1,33 @@
+'use client'
+
 import NavDash from '@/components/NavDash'
 import Sidebar from '@/components/Sidebar'
-
+import { useUser } from '@/context/AuthContext'
+import { useEffect } from 'react'
+import { useState } from 'react'
 
 const Profile = () => {
+  const {user}=useUser();
+  console.log(user.email);
+  const [data, setData] = useState({});
+  const getData = async () => {
+    try {
+      const response = await fetch('/api/user', {
+        method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            email:user?.email
+        })
+      })
+      setData(response.user)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  useEffect(() => {
+    getData();
+  }, [user])
+  
   return (
     <div className="min-h-screen bg-gray-50/50">
     <Sidebar/>
@@ -22,30 +47,30 @@ const Profile = () => {
             <div className="grid text-sm md:grid-cols-2">
               <div className="grid grid-cols-2">
                 <div className="px-4 py-2 font-semibold"> Name</div>
-                <div className="px-4 py-2">Jane</div>
+                <div className="px-4 py-2">{data?.name}</div>
               </div>  
               <div className="grid grid-cols-2">
                 <div className="px-4 py-2 font-semibold">Gender</div>
-                <div className="px-4 py-2">Female</div>
+                <div className="px-4 py-2">{data?.gender}</div>
               </div>
               <div className="grid grid-cols-2">
                 <div className="px-4 py-2 font-semibold">Address</div>
-                <div className="px-4 py-2">Jamshedpur</div>
+                <div className="px-4 py-2">(data?.address)</div>
               </div>
               <div className="grid grid-cols-2">
                 <div className="px-4 py-2 font-semibold">Pin Code</div>
-                <div className="px-4 py-2">832304</div>
+                <div className="px-4 py-2">{data?.pincode}</div>
               </div>
               <div className="grid grid-cols-2">
                 <div className="px-4 py-2 font-semibold">Contact No.</div>
-                <div className="px-4 py-2">+11 998001001</div>
+                <div className="px-4 py-2">+91 {data?.contact}</div>
               </div>
               
               <div className="grid grid-cols-2">
                 <div className="px-4 py-2 font-semibold">Email.</div>
                 <div className="px-4 py-2">
                   <a className="text-blue-800" href="mailto:jane@example.com">
-                    jane@example.com
+                    {data?.email}
                   </a>
                 </div>
               </div>

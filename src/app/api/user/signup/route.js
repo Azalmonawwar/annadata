@@ -22,15 +22,17 @@ export async function POST(req) {
 }
 export async function GET(req) {
     try {
-         body = await req.json();
+        //  body = await req.json();
         const user = await User.find();
         return NextResponse.json( {
             user,
             massage:"Sucessfull"
         });
     } catch (error) {
+        // console.log(error);
         return NextResponse.json( {
-            message:"Data not loaded! "
+            message:"Data not loaded! ",
+            error
         });
     }
 }

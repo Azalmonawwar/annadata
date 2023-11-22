@@ -38,15 +38,15 @@ const AuthContextProvider = ({ children }) => {
             setIsLoading(false);
             setUser({ name: res.name, email: res.email });
             router.push('/dash');
-
         }
+        setIsLoading(false)
     }
 
     useEffect(() => {
         checkAuth();
         
         console.log(isAuth);
-    }, [])
+    }, [isAuth])
     
     return (
         <AuthContext.Provider value={{ user, isAuth, isLoading, setIsAuth, setUser, setIsLoading }}>
