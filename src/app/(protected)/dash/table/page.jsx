@@ -3,6 +3,7 @@ import ListRequest from '@/components/ListRequest'
 import NavDash from '@/components/NavDash'
 import Sidebar from '@/components/Sidebar'
 import { useUser } from '@/context/AuthContext'
+import Loader from '../loading'
 const Table = () => {
   const {isLoading} = useUser();
   if(isLoading){
