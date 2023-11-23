@@ -4,7 +4,8 @@ import Sidebar from '@/components/Sidebar'
 import { useUser } from '@/context/AuthContext'
 // import { useEffect } from 'react'
 // import { useState } from 'react'
-import Loader from '../loading'
+import Loader from '@/app/(protected)/loading'
+// import Loader from '../loading'
 
 const Profile = () => {
 
