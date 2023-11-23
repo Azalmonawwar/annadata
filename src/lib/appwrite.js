@@ -129,3 +129,12 @@ export async function getCurrentUser() {
         return null;
     }
 }
+
+export async function forgetPass(email) {
+    try {
+        const response = await account.createRecovery(email, 'https://annadata-rk.vercel.app/forgetpass');
+        return response;
+    } catch (error) {
+        console.log(error);
+    }
+}
