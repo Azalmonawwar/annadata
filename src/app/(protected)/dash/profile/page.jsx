@@ -8,39 +8,14 @@ import { useState } from 'react'
 import Loader from '../loading'
 
 const Profile = () => {
-<<<<<<< HEAD
 
   const {user, isLoading}=useUser();
-  console.log(user.email);
-  const [data, setData] = useState({});
-  const getData = async () => {
-    try {
-      const response = await fetch('/api/user', {
-        method: 'POST',
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-            email:user?.email
-        })
-      })
-      setData(response.user)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-  useEffect(() => {
-    getData();
-  }, [user])
+
   
   if(isLoading){
     return <Loader/>
   } else {
-    
 
-  
-=======
-  const { user } = useUser();
-
->>>>>>> 338222eea2a6bc4a2126adf0f4b98fee141d2f12
   return (
     <div className="min-h-screen bg-gray-50/50">
       <Sidebar />
