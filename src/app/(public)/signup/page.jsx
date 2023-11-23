@@ -8,7 +8,6 @@ import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 
 function Registration() {
-    const { setUser, setIsAuth } = useUser()
     const router = useRouter()
     const [formData, setFormData] = useState({
         name: '',
