@@ -1,12 +1,13 @@
 // src/components/Login.js
 'use client'
+import { forgetPass } from '@/lib/appwrite';
 import Link from 'next/link';
 import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 
 function ForgotPass() {
     const [formData, setFormData] = useState({
-        username: '',
-        password: '',
+        email: '',
     });
 
     const handleChange = (e) => {
@@ -14,10 +15,18 @@ function ForgotPass() {
         setFormData({ ...formData, [name]: value });
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Add your login logic here using formData.username and formData.password
-        console.log('Form data submitted:', formData);
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        try {
+            const response = await forgetPass(email);
+            console.log(response);
+            if (response) {
+                setFormData({ email: '' })
+            }
+            toast.success('Password reset link sent to your email');
+        } catch (error) {
+            console.log(error)
+        }
     };
 
     return (
@@ -35,7 +44,7 @@ function ForgotPass() {
                             name="email"
                             className="w-full border  rounded-lg px-3 py-2 "
                             placeholder="Enter your Email"
-                            value={formData.username}
+                            value={formData.email}
                             onChange={handleChange}
                             required
                         />
@@ -49,7 +58,7 @@ function ForgotPass() {
                 </form>
                 <div className="mt-4 text-center">
                     <Link href="/login" className="text-blue-500 hover:underline">
-                        Click Here to Login 
+                        Click Here to Login
                     </Link>
                 </div>
                 <div className="mt-4 text-center">

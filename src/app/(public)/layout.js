@@ -17,9 +17,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-      <Toaster position="bottom-center" toastOptions={{ duration: 4000 }} />
-        <Header/>
-        {/* <Nav/> */}
+        <Toaster position="bottom-center" toastOptions={{ duration: 4000 }} />
+        <Header />
+        {/* <Nav /> */}
         <main className='w-full flex flex-col'>
           {children}
         </main>

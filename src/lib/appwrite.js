@@ -1,13 +1,24 @@
-import { ID } from "appwrite";
+import { ID, Query } from "appwrite";
 import { account, database, url } from "./config";
-export async function createUserAccount(id, email, password, name) {
+export async function createUserAccount({ name, gender, address, pincode, contact, email, password }) {
     try {
         const newAccount = await account.create(
-            id,
+            ID.unique(),
             email,
             password,
             name
         )
+
+        const save = await saveUserToDB({
+            id: newAccount.$id,
+            name: name,
+            gender: gender,
+            address: address,
+            pincode: pincode,
+            contact: contact,
+            email: email
+        })
+        console.log(save);
         return newAccount
     } catch (error) {
         console.log('something went wrong in creating account', error)
@@ -42,7 +53,7 @@ export async function signOutAccount() {
         console.log(error);
     }
 }
-export async function getCurrentUser() {
+export async function getUser() {
     try {
         const user = await account.get()
         return user
@@ -51,10 +62,10 @@ export async function getCurrentUser() {
     }
 }
 
-export async function saveOrderToDB(formData){
+export async function saveOrderToDB(formData) {
     try {
         const res = await database.createDocument(
-            url.db,url.collection,ID.unique(),
+            url.db, url.collection, ID.unique(),
             formData
         )
         console.log(res);
@@ -63,10 +74,10 @@ export async function saveOrderToDB(formData){
     }
 }
 
-export async function showDB(){
+export async function showDB() {
     try {
         const res = await database.listDocuments(
-            url.db,url.collection,
+            url.db, url.collection,
         )
         return res;
         // console.log(res);
@@ -75,14 +86,54 @@ export async function showDB(){
     }
 }
 
-export async function deleteData(id){
+export async function deleteData(id) {
     try {
         const res = await database.deleteDocument(
-            url.db,url.collection,
-            id  
+            url.db, url.collection,
+            id
         )
         return res;
         // console.log(res);
+    } catch (error) {
+        console.log(error);
+    }
+}
+export async function saveUserToDB(user) {
+    try {
+        const res = await database.createDocument(
+            url.db, url.usercollection, ID.unique(),
+            user
+        )
+        console.log(res);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export async function getCurrentUser() {
+    try {
+        const currentAccount = await getUser();
+
+        if (!currentAccount) throw Error;
+
+        const currentUser = await database.listDocuments(
+            url.db, url.usercollection,
+            [Query.equal("id", currentAccount.$id)]
+        );
+
+        if (!currentUser) throw Error;
+
+        return currentUser.documents[0];
+    } catch (error) {
+        console.log(error);
+        return null;
+    }
+}
+
+export async function forgetPass(email) {
+    try {
+        const response = await account.createRecovery(email, 'https://annadata-rk.vercel.app/forgetpass');
+        return response;
     } catch (error) {
         console.log(error);
     }
