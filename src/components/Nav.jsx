@@ -10,9 +10,9 @@ const Header = () => {
   };
 
   return (
-    <header className="w-full bg-gray-900 shadow-sm body-font fixed z-10">
-      <div className="container flex flex-col items-start p-6 mx-auto md:flex-row">
-      <Link href={'/'} className="flex items-center mb-4 font-medium text-gray-900 title-font md:mb-0">
+    <header className="w-full bg-gray-900 shadow-sm body-font fixed z-10 ">
+      <div className="container flex justify-between items-start p-6 mx-auto md:flex-row">
+        <Link href={'/'} className="flex items-center mb-4 font-medium text-gray-900 title-font md:mb-0">
           <svg
             className="w-auto h-5 text-white fill-current"
             viewBox="0 0 202 69"
@@ -24,7 +24,7 @@ const Header = () => {
             />
           </svg>
         </Link>
-        <button className="md:hidden" onClick={toggleMenu}>
+        <button className="md:hidden z-20" onClick={toggleMenu}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="w-6 h-6 text-white cursor-pointer"
@@ -40,28 +40,32 @@ const Header = () => {
             />
           </svg>
         </button>
-        <nav className={`md:flex items-center justify-center text-base ${isMenuOpen ? 'block' : 'hidden'}`}>
-          <a href="/" className="mr-5 font-medium text-gray-200 hover:text-gray-400">
-            Home
-          </a>
-          <a href="about" className="mr-5 font-medium text-gray-200 hover:text-gray-400">
-            About
-          </a>
-          <a href="contact" className="font-medium text-gray-200 hover:text-gray-400">
-            Contact
-          </a>
+
+        <nav className={`md:flex flex-col md:flex-row md:items-center md:justify-center text-base ${isMenuOpen ? 'absolute top-0 left-0 bg-black w-full h-screen z-10' : 'hidden'}`}>
+          <div className='flex flex-col items-center justify-center'>
+            <Link href="/" className="mr-5 font-medium text-gray-200 hover:text-gray-400">
+              Home
+            </Link>
+            <Link href="/about" className="mr-5 font-medium text-gray-200 hover:text-gray-400">
+              About
+            </Link>
+            <Link href="/contact" className="font-medium text-gray-200 hover:text-gray-400">
+              Contact
+            </Link>
+          </div>
+          <div className="items-center h-full pl-6 ml-6 border-l border-gray-200 md:border-0">
+            <Link href="login" className="mr-5 font-medium text-white hover:text-gray-400">
+              Login
+            </Link>
+            <Link
+              href="signup"
+              className="px-4 py-2 text-xs font-bold text-white uppercase transition-all duration-150 bg-teal-500 rounded shadow outline-none active:bg-teal-600 hover-shadow-md focus-outline-none ease"
+            >
+              Sign Up
+            </Link>
+          </div>
         </nav>
-        <div className="items-center h-full pl-6 ml-6 border-l border-gray-200 md:border-0">
-          <a href="login" className="mr-5 font-medium text-white hover:text-gray-400">
-            Login
-          </a>
-          <a
-            href="signup"
-            className="px-4 py-2 text-xs font-bold text-white uppercase transition-all duration-150 bg-teal-500 rounded shadow outline-none active:bg-teal-600 hover-shadow-md focus-outline-none ease"
-          >
-            Sign Up
-          </a>
-        </div>
+
       </div>
     </header>
   );

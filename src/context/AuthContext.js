@@ -2,10 +2,14 @@
 import { getCurrentUser } from '@/lib/appwrite'
 import { createContext, useContext, useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { set } from 'mongoose'
 export const intialUser = {
+    id: '',
     name: '',
-    email: '',
+    gender: '',
+    address: '',
+    pincode: '',
+    contact: '',
+    email: ''
 }
 
 const intialState = {
@@ -36,9 +40,17 @@ const AuthContextProvider = ({ children }) => {
         try {
             const currentAccount = await getCurrentUser();
             if (currentAccount) {
+                setUser({
+                    id: currentAccount.$id,
+                    name: currentAccount.name,
+                    gender: currentAccount.gender,
+                    address: currentAccount.address,
+                    pincode: currentAccount.pincode,
+                    contact: currentAccount.contact,
+                    email: currentAccount.email,
+                });
 
                 setIsAuth(true);
-                setUser({ name: currentAccount.name, email: currentAccount.email })
                 return true;
             }
 
