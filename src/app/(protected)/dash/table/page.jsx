@@ -1,7 +1,12 @@
 import ListRequest from '@/components/ListRequest'
 import NavDash from '@/components/NavDash'
 import Sidebar from '@/components/Sidebar'
+import { useUser } from '@/context/AuthContext'
 const Table = () => {
+  const {isLoading} = useUser();
+  if(isLoading){
+    return <Loader/>
+  } else {
   return (
     <div className="min-h-screen bg-gray-50/50">
     <Sidebar/>
@@ -72,6 +77,7 @@ const Table = () => {
   </div>
 </div>
   )
+}
 }
 
 export default Table

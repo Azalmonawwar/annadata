@@ -12,7 +12,7 @@ const Info = () => {
                 </svg>
               <p className="text-black text-2xl font-extrabold">Email</p>
               <p className="text-black text-base leading-7">Contact us at</p>
-              <a className=" text-black text-lg font-bold" href="mailto: hello@loopple.com">contact@annadata.com</a>
+              <a className=" text-black text-lg font-bold" href="mailto: contact@annadata.com">contact@annadata.com</a>
             </div>
 
 
@@ -33,7 +33,7 @@ const Info = () => {
                 </svg>
               <p className="text-black text-2xl font-extrabold">Location</p>
               <p className="text-black text-base leading-7">Find us at our office</p>
-              <a className="text-black text-lg font-bold" target="_blank" href="https://goo.gl/maps/QcWzYETAh4FS3KTD7">14, Mango, Jamshedpur</a>
+              <a className="text-black text-lg font-bold" target="_blank" href="https://maps.app.goo.gl/mcBa6LJp5JJ4bxFT9">14, Mango, Jamshedpur</a>
             </div>
           </div>
         </div>

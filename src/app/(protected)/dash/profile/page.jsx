@@ -5,9 +5,11 @@ import Sidebar from '@/components/Sidebar'
 import { useUser } from '@/context/AuthContext'
 import { useEffect } from 'react'
 import { useState } from 'react'
+import Loader from '../loading'
 
 const Profile = () => {
-  const {user}=useUser();
+
+  const {user, isLoading}=useUser();
   console.log(user.email);
   const [data, setData] = useState({});
   const getData = async () => {
@@ -27,6 +29,12 @@ const Profile = () => {
   useEffect(() => {
     getData();
   }, [user])
+  
+  if(isLoading){
+    return <Loader/>
+  } else {
+    
+
   
   return (
     <div className="min-h-screen bg-gray-50/50">
@@ -91,5 +99,5 @@ const Profile = () => {
     
   )
 }
-
+}
 export default Profile
