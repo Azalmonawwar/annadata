@@ -1,5 +1,4 @@
 'use client'
-import { useUser } from '@/context/AuthContext';
 import { ID } from 'appwrite';
 import { createUserAccount } from '@/lib/appwrite';
 import Link from 'next/link';
@@ -27,49 +26,14 @@ function Registration() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        try {
-            const response = await fetch('/api/user/signup', {
-                method: 'POST',
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    name: formData.name,
-                    gender: formData.gender,
-                    address: formData.address,
-                    pincode: formData.pincode,
-                    contact: formData.contact,
-                    email: formData.email,
-                    password: formData.password
-                })
-            })
-
-            // Set the status based on the response from the API route
-            if (response.status === 200) {
-                setFormData({
-                    name: '',
-                    gender: '',
-                    address: '',
-                    pincode: '',
-                    contact: '',
-                    email: '',
-                    password: '',
-                    password_1: ''
-                })
-                // toast.success(`${formData.name} You have successfully Registerd please verify your email.`)
-            } else {
-                toast.error("Something went Wrong")
-            }
-        } catch (e) {
-            console.log(e)
-        }
         try {
             // const res = await account.create(ID.unique(), formData.email, formData.password, formData.name)
-            const res = await createUserAccount(ID.unique(), formData.email, formData.password, formData.name)
+            const res = await createUserAccount(formData)
+            console.log(formData)
             if (res) {
                 toast.success(formData.name + "account created successfully")
                 router.push('/login')
             }
-            console.log(res)
 
         } catch (error) {
             console.log("something went wrong in creating error", error)
