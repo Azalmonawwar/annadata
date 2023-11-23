@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 import { useUser } from '@/context/AuthContext';
 function Login() {
     const router = useRouter();
-    const { setUser, setIsAuth } = useUser();
+    const { setIsAuth } = useUser();
 
     const [formData, setFormData] = useState({
         email: '',
